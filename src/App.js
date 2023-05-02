@@ -26,7 +26,6 @@ function App() {
         <table className="m-auto">
           <thead>
             <tr>
-              `
               {keys.map((k) => (
                 <th key={k}>{k}</th>
               ))}
