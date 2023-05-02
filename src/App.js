@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import data from "./honda_wmi.json";
 import { Header, Table, View } from "./components";
 
