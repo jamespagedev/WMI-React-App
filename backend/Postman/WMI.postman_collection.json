@@ -1,0 +1,39 @@
+{
+  "info": {
+    "_postman_id": "a4a8ee5b-77f6-4281-8471-8c1796b82422",
+    "name": "WMI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Cars",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5163/api/Cars/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5163",
+          "path": ["api", "Cars", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Car",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5163/api/Cars/guid",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5163",
+          "path": ["api", "Cars", "guid"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
