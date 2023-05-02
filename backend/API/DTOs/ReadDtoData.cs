@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Data
+namespace API.DTOs
 {
-    public class Data
+    public class ReadDtoData
     {
-        [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Country { get; set; }
         public string WMI { get; set; }
