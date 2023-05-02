@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import data from "./honda_wmi.json";
+import { Header, View } from "./components";
 
 function App() {
   const keys = ["Name", "WMI", "Country", "CreatedOn", "VehicleType"];
@@ -20,18 +21,20 @@ function App() {
 
   return (
     <div className="App">
-      <header>WMI Data - Honda | Total: {data.length}</header>
-      <table>
-        <thead>
-          <tr>
-            `
-            {keys.map((k) => (
-              <th key={k}>{k}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>{getRowsJsx()}</tbody>
-      </table>
+      <Header numOfTableRows={data.length} />
+      <View>
+        <table className="m-auto">
+          <thead>
+            <tr>
+              `
+              {keys.map((k) => (
+                <th key={k}>{k}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>{getRowsJsx()}</tbody>
+        </table>
+      </View>
     </div>
   );
 }
