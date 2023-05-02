@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.DTOs
+namespace API.Models
 {
-    public class Data
+    public class DataModel
     {
-        public Guid Id { get; set; }
+        [Key]
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Country { get; set; }
         public string WMI { get; set; }
