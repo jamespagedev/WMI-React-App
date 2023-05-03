@@ -21,16 +21,26 @@
       "response": []
     },
     {
-      "name": "Get Car",
+      "name": "Get Cars By Search",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:5163/api/Cars/guid",
+          "raw": "http://localhost:5163/api/Cars/search?searchValue=SHANGHAI&country=CHINA",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5163",
-          "path": ["api", "Cars", "guid"]
+          "path": ["api", "Cars", "search"],
+          "query": [
+            {
+              "key": "searchValue",
+              "value": "SHANGHAI"
+            },
+            {
+              "key": "country",
+              "value": "CHINA"
+            }
+          ]
         }
       },
       "response": []

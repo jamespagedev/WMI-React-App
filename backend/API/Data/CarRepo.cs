@@ -21,9 +21,21 @@ namespace API.Data
             return await _context.Cars!.Include(c => c.Country).OrderBy(c => c.CreatedOn).ThenBy(c => c.WMI).ToListAsync();
         }
 
-        public async Task<CarModel?> GetCarById(string id)
+        public async Task<IEnumerable<CarModel>> Search(string? searchValue, string country)
         {
-            return await _context.Cars!.FirstOrDefaultAsync(c => c.PublicId == id);
+            IQueryable<CarModel> query = _context.Cars!.Include(c => c.Country).OrderBy(c => c.CreatedOn).ThenBy(c => c.WMI);
+            
+            if (!string.IsNullOrEmpty(searchValue))
+            {
+                query = query.Where(e => e.Name!.Contains(searchValue) || e.VehicleType!.Contains(searchValue) || e.WMI!.Contains(searchValue));
+            }
+            
+            if (country != "all")
+            {
+                query = query.Where(e => e.Country != null && e.Country.Name.ToLower() == country.ToLower());
+            }
+            
+            return await query.ToListAsync();
         }
     }
 }
