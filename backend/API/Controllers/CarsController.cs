@@ -27,13 +27,13 @@ public class Cars : ControllerBase
             return Ok(_mapper.Map<IEnumerable<CarReadDto>>(cars));
         }
 
-        [HttpGet("{id}", Name = "GetCarById")]
-        public async Task<ActionResult<CarReadDto>> Get(string id)
+        [HttpGet("{search}", Name = "Search")]
+        public async Task<ActionResult<IEnumerable<CarReadDto>>> Search(string? searchValue, string country = "all")
         {
-            var car = await _repository.GetCarById(id);
-            if (car != null)
+            var cars = await _repository.Search(searchValue, country);
+            if (cars != null)
             {
-                return Ok(_mapper.Map<CarReadDto>(car));
+                return Ok(_mapper.Map<IEnumerable<CarReadDto>>(cars));
             }
             return NotFound();
         }
