@@ -18,7 +18,7 @@ namespace API.Data
 
         public async Task<IEnumerable<CarModel>> GetAllCars()
         {
-            return await _context.Cars!.ToListAsync();
+            return await _context.Cars!.OrderBy(c => c.CreatedOn).ThenBy(c => c.WMI).ToListAsync();
         }
 
         public async Task<CarModel?> GetCarById(string id)
