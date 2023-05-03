@@ -16,7 +16,7 @@ Runs a set of basic tests for the app.
 
 ## Tasks
 
-- [ ] Move `honda_wmi.json` file's content to a backend API written in C# & ASP.NET Core 3.1
+- [x] Move `honda_wmi.json` file's content to a backend API written in C# & ASP.NET Core 3.1
   - Data must be retrieved from the API and rendered instead of from the local browser
   - A spinner or a `Loading...` text must appear while the request is in flight
 - [x] Style `table` element that displays WMI table
