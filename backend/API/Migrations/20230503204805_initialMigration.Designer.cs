@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230503030741_initialMigration")]
+    [Migration("20230503204805_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
@@ -28,8 +28,11 @@ namespace API.Migrations
                     b.Property<string>("PublicId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Country")
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("CountryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("CountryModelId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("TEXT");
@@ -51,7 +54,44 @@ namespace API.Migrations
 
                     b.HasKey("Id", "PublicId");
 
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("CountryModelId");
+
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("API.Models.CountryModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+                });
+
+            modelBuilder.Entity("API.Models.CarModel", b =>
+                {
+                    b.HasOne("API.Models.CountryModel", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId");
+
+                    b.HasOne("API.Models.CountryModel", null)
+                        .WithMany("Cars")
+                        .HasForeignKey("CountryModelId");
+
+                    b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("API.Models.CountryModel", b =>
+                {
+                    b.Navigation("Cars");
                 });
 #pragma warning restore 612, 618
         }

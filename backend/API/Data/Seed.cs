@@ -10,10 +10,60 @@ namespace API.Data
             if (!context.Cars.Any())
             {
                 Console.WriteLine("seeding...");
+                var countries = new List<CountryModel>
+                {
+                    new CountryModel
+                    {
+                        Id = 1,
+                        Name = "UNITED STATES (USA)"
+                    },
+                    new CountryModel
+                    {
+                        Id = 2,
+                        Name = "CANADA"
+                    },
+                    new CountryModel
+                    {
+                        Id = 3,
+                        Name = "UNITED KINGDOM (UK)"
+                    },
+                    new CountryModel
+                    {
+                        Id = 4,
+                        Name = "MEXICO"
+                    },
+                    new CountryModel
+                    {
+                        Id = 5,
+                        Name = "BELGIUM"
+                    },
+                    new CountryModel
+                    {
+                        Id = 6,
+                        Name = "CHINA"
+                    },
+                    new CountryModel
+                    {
+                        Id = 7,
+                        Name = "JAPAN"
+                    },
+                    new CountryModel
+                    {
+                        Id = 8,
+                        Name = "SPAIN"
+                    },
+                    new CountryModel
+                    {
+                        Id = 9,
+                        Name = "HONG KONG"
+                    }
+                };
+                
                 var cars = new List<CarModel>
                 {
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-03-26", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -25,7 +75,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-26", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 988,
@@ -36,7 +87,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-26", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 989,
@@ -47,7 +99,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CANADA",
+                        CountryId = countries[1].Id,
+                        Country = countries[1],
                         CreatedOn = DateTime.ParseExact("2015-03-26", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 990,
@@ -58,7 +111,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED KINGDOM (UK)",
+                        CountryId = countries[2].Id,
+                        Country = countries[2],
                         CreatedOn = DateTime.ParseExact("2015-03-26", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 991,
@@ -69,7 +123,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "MEXICO",
+                        CountryId = countries[3].Id,
+                        Country = countries[3],
                         CreatedOn = DateTime.ParseExact("2015-03-26", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 992,
@@ -80,6 +135,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-03-26", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -91,6 +147,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -102,6 +159,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -113,6 +171,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -124,7 +183,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 988,
@@ -135,7 +195,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 988,
@@ -146,7 +207,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 988,
@@ -157,7 +219,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 988,
@@ -168,7 +231,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 988,
@@ -179,7 +243,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 989,
@@ -190,7 +255,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 989,
@@ -201,7 +267,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 989,
@@ -212,7 +279,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 989,
@@ -223,7 +291,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 989,
@@ -234,7 +303,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CANADA",
+                        CountryId = countries[1].Id,
+                        Country = countries[1],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 990,
@@ -245,7 +315,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CANADA",
+                        CountryId = countries[1].Id,
+                        Country = countries[1],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 990,
@@ -256,7 +327,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CANADA",
+                        CountryId = countries[1].Id,
+                        Country = countries[1],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 990,
@@ -267,7 +339,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CANADA",
+                        CountryId = countries[1].Id,
+                        Country = countries[1],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 990,
@@ -278,7 +351,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CANADA",
+                        CountryId = countries[1].Id,
+                        Country = countries[1],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 990,
@@ -289,7 +363,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED KINGDOM (UK)",
+                        CountryId = countries[2].Id,
+                        Country = countries[2],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 991,
@@ -300,7 +375,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "MEXICO",
+                        CountryId = countries[3].Id,
+                        Country = countries[3],
                         CreatedOn = DateTime.ParseExact("2015-03-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 992,
@@ -311,6 +387,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-04-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -322,6 +399,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-04-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -333,7 +411,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "BELGIUM",
+                        CountryId = countries[4].Id,
+                        Country = countries[4],
                         CreatedOn = DateTime.ParseExact("2015-04-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 988,
@@ -344,6 +423,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-04-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -355,7 +435,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-04-21", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 993,
@@ -366,6 +447,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-06-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -377,6 +459,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-06-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -388,7 +471,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-06-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 14790,
@@ -399,6 +483,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-06-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -410,6 +495,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-06-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -421,6 +507,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-06-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -432,7 +519,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 12142,
@@ -443,7 +531,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 11163,
@@ -454,7 +543,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 12294,
@@ -465,7 +555,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 10479,
@@ -476,7 +567,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 11366,
@@ -487,7 +579,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 1471,
@@ -498,7 +591,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 6877,
@@ -509,7 +603,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-07-15", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 1154,
@@ -520,7 +615,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-16", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 10754,
@@ -531,7 +627,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-07-20", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 6460,
@@ -542,7 +639,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-20", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 6108,
@@ -553,7 +651,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-21", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 12293,
@@ -564,7 +663,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-07-23", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-01-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 11400,
@@ -575,7 +675,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-07-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-07-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 11152,
@@ -586,7 +687,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-08-05", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-08-05", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 13493,
@@ -597,7 +699,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-08-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-08-07", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 7575,
@@ -608,7 +711,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-08-10", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-08-10", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 9274,
@@ -619,7 +723,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-08-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-08-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 1327,
@@ -630,7 +735,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-08-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-08-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 8915,
@@ -641,7 +747,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-08-31", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-08-31", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 18814,
@@ -652,7 +759,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-09-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-09-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 10038,
@@ -663,7 +771,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-09-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-09-04", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 9554,
@@ -674,7 +783,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2015-09-16", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-09-16", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 1695,
@@ -685,7 +795,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-11-06", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-11-06", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 7363,
@@ -696,7 +807,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2015-12-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2015-12-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 14236,
@@ -707,6 +819,7 @@ namespace API.Data
                     },
                     new CarModel
                     {
+                        CountryId = null,
                         Country = null,
                         CreatedOn = DateTime.ParseExact("2015-12-30", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("1988-12-30", "yyyy-MM-dd", CultureInfo.InvariantCulture),
@@ -718,7 +831,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "JAPAN",
+                        CountryId = countries[6].Id,
+                        Country = countries[6],
                         CreatedOn = DateTime.ParseExact("2016-06-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2016-06-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 987,
@@ -729,7 +843,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2016-06-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2016-06-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 993,
@@ -740,7 +855,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "SPAIN",
+                        CountryId = countries[7].Id,
+                        Country = countries[7],
                         CreatedOn = DateTime.ParseExact("2016-06-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2016-06-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 15171,
@@ -751,7 +867,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2016-08-31", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2016-08-31", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 15538,
@@ -762,7 +879,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "HONG KONG",
+                        CountryId = countries[8].Id,
+                        Country = countries[8],
                         CreatedOn = DateTime.ParseExact("2016-10-26", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2016-10-26", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 15739,
@@ -773,7 +891,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CANADA",
+                        CountryId = countries[1].Id,
+                        Country = countries[1],
                         CreatedOn = DateTime.ParseExact("2017-02-22", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2017-02-22", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 15238,
@@ -784,7 +903,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2017-03-09", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2017-03-09", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 993,
@@ -795,7 +915,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2017-05-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2017-05-08", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 8769,
@@ -806,7 +927,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2017-05-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2017-05-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 9042,
@@ -817,7 +939,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2017-05-23", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2017-05-23", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 16100,
@@ -828,7 +951,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2017-06-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2017-06-27", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 16653,
@@ -839,7 +963,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED KINGDOM (UK)",
+                        CountryId = countries[2].Id,
+                        Country = countries[2],
                         CreatedOn = DateTime.ParseExact("2017-11-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2017-11-03", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 1879,
@@ -850,7 +975,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2018-01-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2018-01-17", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 17562,
@@ -861,7 +987,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2018-01-25", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2018-01-25", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 9877,
@@ -872,7 +999,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "UNITED STATES (USA)",
+                        CountryId = countries[0].Id,
+                        Country = countries[0],
                         CreatedOn = DateTime.ParseExact("2018-03-14", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2018-03-14", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 3847,
@@ -883,7 +1011,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2018-05-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2018-05-11", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 17686,
@@ -894,7 +1023,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2018-08-10", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2018-08-10", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 18570,
@@ -905,7 +1035,8 @@ namespace API.Data
                     },
                     new CarModel
                     {
-                        Country = "CHINA",
+                        CountryId = countries[5].Id,
+                        Country = countries[5],
                         CreatedOn = DateTime.ParseExact("2020-08-31", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         DateAvailableToPublic = DateTime.ParseExact("2020-08-31", "yyyy-MM-dd", CultureInfo.InvariantCulture),
                         Id = 20032,
@@ -917,6 +1048,7 @@ namespace API.Data
                 };
 
                 await context.Cars.AddRangeAsync(cars);
+                await context.Countries.AddRangeAsync(countries);
                 await context.SaveChangesAsync();
             }
         }

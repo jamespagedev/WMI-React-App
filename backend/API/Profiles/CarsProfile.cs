@@ -9,7 +9,8 @@ namespace API.Profiles
         public CarsProfile()
         {
             CreateMap<CarModel, CarReadDto>()
-                .ForMember(d => d.Id, o => o.MapFrom(c => c.PublicId));
+                .ForMember(crd => crd.Id, o => o.MapFrom(cm => cm.PublicId))
+                .ForMember(crd => crd.Country, o => o.MapFrom(cm => cm.Country!.Name));
         }
     }
 }
