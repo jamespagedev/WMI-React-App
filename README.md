@@ -1,27 +1,57 @@
-## Scripts
+## Pre-Requisites
 
-In the project directory, you can run:
+- Dotnet SDK Version 7
+  - Note: due to version 3.1 support ending years ago, we are using an up to date version
+- NodeJS
+- (Recommend)Visual Studio Code
 
-### `npm start`
+## Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Open the first command prompt in directory you want to download this project and execute the following commands(assuming windows):
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+git clone https://github.com/jamespagedev/WMI-React-App.git
+git checkout solution
+cd WMI-React-App
+```
 
-### `npm test`
+- create a .env file in the base project directory with the following contents:
+
+```
+REACT_APP_DEV_API=http://localhost:5163/api
+REACT_APP_TEST_API=http://localhost:5163/api
+REACT_APP_PROD_API=http://localhost:5163/api
+```
+
+- Open a 2nd command prompt and execute the commands in order:
+
+```
+cd backend/API
+dotnet restore
+dotnet ef database update
+dotnet run
+```
+
+- Back in the first command prompt, ensure you are in the project base directory and execute the commands in the following order:
+
+```
+npm install
+npm start
+```
+
+### (Optional)`npm test`
+
 Runs a set of basic tests for the app.
 
-## Tasks
+## Tasks (MVP Complete)
 
-- [ ] Move `honda_wmi.json` file's content to a backend API written in C# & ASP.NET Core 3.1
+- [x] Move `honda_wmi.json` file's content to a backend API written in C# & ASP.NET Core 3.1
   - Data must be retrieved from the API and rendered instead of from the local browser
   - A spinner or a `Loading...` text must appear while the request is in flight
-- [ ] Style `table` element that displays WMI table
-- [ ] Render data sorted by `CreatedOn` and then by `WMI`
-- [ ] Introduce a search box to accept user input, filter and render data
-- [ ] Introduce a `Select` control to group by country
+- [x] Style `table` element that displays WMI table
+- [x] Render data sorted by `CreatedOn` and then by `WMI`
+- [x] Introduce a search box to accept user input, filter and render data
+- [x] Introduce a `Select` control to group by country
   - By default `View All` option must be selected, rendering all records
   - Distinct countries must be available for user selection
   - On selecting a country, data must be filtered down to just the country

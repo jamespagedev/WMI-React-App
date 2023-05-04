@@ -1,0 +1,49 @@
+{
+  "info": {
+    "_postman_id": "a4a8ee5b-77f6-4281-8471-8c1796b82422",
+    "name": "WMI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Cars",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5163/api/Cars/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5163",
+          "path": ["api", "Cars", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Cars By Search",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5163/api/Cars/search?searchValue=SHANGHAI&country=CHINA",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5163",
+          "path": ["api", "Cars", "search"],
+          "query": [
+            {
+              "key": "searchValue",
+              "value": "SHANGHAI"
+            },
+            {
+              "key": "country",
+              "value": "CHINA"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
