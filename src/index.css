@@ -12,12 +12,19 @@ ruby, section, summary, time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
+  color: #ffffff;
   font: inherit;
   vertical-align: baseline;
 }
 /*prettier-ignore*/
 input[type='email']:focus, input[type='tel']:focus,
 input[type='password']:focus, input[type='text']:focus,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
 textarea:focus {
   outline: none;
 }
@@ -32,6 +39,7 @@ header {
   z-index: 10;
   padding: 8px 16px;
   background-color: #060606;
+  border-bottom: 1px solid #ccff00;
 }
 h1 {
   margin: 0;
@@ -87,7 +95,6 @@ button {
 table, th, td {
   width: fit-content;
   padding: 8px;
-  color: #ffffff;
   white-space:nowrap;
 }
 /*prettier-ignore*/
@@ -188,7 +195,7 @@ img {
 
 /*======================== view ========================*/
 .view {
-  min-height: calc(100vh - 72px);
+  min-height: 100vh;
   width: 100%;
   flex: 1;
   padding: 45px 0;
@@ -203,6 +210,16 @@ img {
   min-height: 100%;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/*================== table sub header ==================*/
+.tbl-sub-header {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background-color: #3c3c3c;
 }
 
 /*=================== header spinner ===================*/
@@ -285,4 +302,48 @@ img {
   to {
     background-position-x: -30%;
   }
+}
+
+/*======================= search =======================*/
+.search-container {
+  display: flex;
+  height: 50px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-left: 16px;
+  background-color: #060606;
+  border: 2px solid #ccff00;
+  border-radius: 8px;
+}
+.search-container input {
+  height: 100%;
+  width: 100%;
+  color: #ffffff;
+  background-color: #060606;
+  border: none;
+  font-size: 1.6rem;
+  outline: transparent;
+}
+.search-container input::placeholder {
+  color: #cdcdcd;
+}
+.search-container .left {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.search-container .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  background-color: #3c3c3c;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.search-container .fa-search {
+  width: 30px;
+  height: 30px;
+  color: #ccff00;
+  font-size: 1.6rem;
 }
