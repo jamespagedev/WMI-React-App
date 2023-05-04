@@ -27,7 +27,10 @@ namespace API.Data
             
             if (!string.IsNullOrEmpty(searchValue))
             {
-                query = query.Where(e => e.Name!.Contains(searchValue) || e.VehicleType!.Contains(searchValue) || e.WMI!.Contains(searchValue));
+                query = query.Where(e => e.Name!.ToLower().Contains(searchValue.ToLower()) ||
+                    e.VehicleType!.ToLower().Contains(searchValue.ToLower()) ||
+                    e.WMI!.ToLower().Contains(searchValue.ToLower())
+                );
             }
             
             if (country != "all")
