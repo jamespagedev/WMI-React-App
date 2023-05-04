@@ -11,4 +11,5 @@ export const frontendPaths = {
 
 export const backendEndpoints = {
   cars: "/Cars",
+  countries: "/Countries",
 };

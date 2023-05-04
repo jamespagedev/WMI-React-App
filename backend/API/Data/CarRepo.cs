@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,7 +29,7 @@ namespace API.Data
                 );
             }
             
-            if (country != "all")
+            if (country.ToLower() != "view all")
             {
                 query = query.Where(e => e.Country != null && e.Country.Name.ToLower() == country.ToLower());
             }

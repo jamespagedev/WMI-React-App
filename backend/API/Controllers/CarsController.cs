@@ -28,7 +28,7 @@ public class Cars : ControllerBase
         }
 
         [HttpGet("{search}", Name = "Search")]
-        public async Task<ActionResult<IEnumerable<CarReadDto>>> Search(string? searchValue, string country = "all")
+        public async Task<ActionResult<IEnumerable<CarReadDto>>> Search(string? searchValue, string country = "view all")
         {
             var cars = await _repository.Search(searchValue, country);
             if (cars != null)

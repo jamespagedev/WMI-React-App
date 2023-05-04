@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/fontawesome-free-solid";
 
-export default function Search({ isLoading, value, handleSearch }) {
+export default function Search({ value, handleSearch }) {
   return (
     <div className="search-container">
       <div className="left">

@@ -11,6 +11,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(s => {
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite("Data Source=CarsDB.db"));
 builder.Services.AddScoped<ICarRepo, CarRepo>();
+builder.Services.AddScoped<ICountryRepo, CountryRepo>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();

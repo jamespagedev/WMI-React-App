@@ -19,14 +19,23 @@ const columnNamesToDataKeys = {
   CreatedOn: "createdOn",
   VehicleType: "vehicleType",
 };
+const defaultSelectedCountry = "View All";
 
 // helper functions
 function getFormatTableDate(data) {
-  const formattedData = data.map((c) => {
-    c[columnNamesToDataKeys.CreatedOn] = getStrDateFormatYyyyMmDdWithDashes(
-      new Date(`${c[columnNamesToDataKeys.CreatedOn]}z`)
+  const formattedData = data.map((car) => {
+    car[columnNamesToDataKeys.CreatedOn] = getStrDateFormatYyyyMmDdWithDashes(
+      new Date(`${car[columnNamesToDataKeys.CreatedOn]}z`)
     );
-    return c;
+    return car;
+  });
+  return formattedData;
+}
+
+function getFormattedAvailableCountries(data) {
+  const formattedData = [defaultSelectedCountry];
+  data.forEach((country) => {
+    formattedData.push(country.name);
   });
   return formattedData;
 }
@@ -38,6 +47,10 @@ export default function Landing() {
   const [isUpdatingData, setIsUpdatingData] = useState(false);
   const [carsData, setCarsData] = useState([]);
   const [searchCarsValue, setSearchCarsValue] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(
+    defaultSelectedCountry
+  );
+  const [availableCountries, setAvailableCountries] = useState([]);
   const [executeDebouncer, setExecuteDebouncer] = useState(false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceUpdateData = useCallback(
@@ -52,10 +65,26 @@ export default function Landing() {
       setIsInitializingData(true);
       // used to fake long response to api and show spinner
       await sleep(2000);
-      // get data
-      const carsRes = await apiGetRequest(backendEndpoints.cars, {});
-      // set data
+      // get cars data
+      const carsRes = await apiGetRequest(
+        `${backendEndpoints.cars}${
+          selectedCountry !== defaultSelectedCountry
+            ? `/search?country=${selectedCountry}`
+            : ""
+        }`,
+        {}
+      );
+      // set cars data
       setCarsData(getFormatTableDate(carsRes.data));
+      if (availableCountries.length === 0) {
+        const countriesRes = await apiGetRequest(
+          backendEndpoints.countries,
+          {}
+        );
+        setAvailableCountries(
+          getFormattedAvailableCountries(countriesRes.data)
+        );
+      }
     } catch (err) {
       console.log("api err:", err);
     } finally {
@@ -72,7 +101,9 @@ export default function Landing() {
     try {
       // get data
       const carsRes = await apiGetRequest(
-        `${backendEndpoints.cars}/search?searchValue=${searchCarsValue}`,
+        `${backendEndpoints.cars}/search?${
+          searchCarsValue.length > 0 ? `searchValue=${searchCarsValue}&` : ""
+        }country=${selectedCountry}`,
         {}
       );
       // set data
@@ -91,6 +122,13 @@ export default function Landing() {
     setIsUpdatingData(true);
     isDebouncingRef.current = true;
     setSearchCarsValue(text);
+    debounceUpdateData();
+  }
+
+  function handleSelectCountry(countryName) {
+    setIsUpdatingData(true);
+    isDebouncingRef.current = true;
+    setSelectedCountry(countryName);
     debounceUpdateData();
   }
 
@@ -113,9 +151,11 @@ export default function Landing() {
         numOfTableRows={carsData.length}
       />
       <TableSubHeader
-        isLoading={isUpdatingData}
         searchValue={searchCarsValue}
         handleSearch={handleSearch}
+        country={selectedCountry}
+        selectCountry={handleSelectCountry}
+        availableCountries={availableCountries}
       />
       {isInitializingData || isUpdatingData ? (
         <TableSpinner columnNames={columnNames} numOfRows={20} />
